@@ -6,15 +6,19 @@ import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
+    let classes = "validate";
+    if (this.props.value.length == 0) {
+      classes = "validate ";
+      if (this.props.error) {
+        classes += "invalid";
+      }
+    } 
     return (
       <div className="input-field">
-        {
-          this.props.icon
-          ? <i className="material-icons prefix">{this.props.icon}</i>
-          : null
-        }
-        <input id={this.props.id} type={this.props.type} className="validate" value={this.props.value}/>
+        <InputIcon {...this.props}/>
+        <input id={this.props.id} type={this.props.type} className={classes} value={this.props.value} onChange={this.props.onChange}/>
         <label htmlFor={this.props.id}>{this.props.label}</label>
+        <ErrorMessage {...this.props}/>
       </div>
     );
   }
@@ -25,7 +29,24 @@ Input.propTypes = {
   value: PropTypes.string,
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  error: PropTypes.bool,
+  errorText: PropTypes.string,
+  onChange: PropTypes.func
 };
+
+function InputIcon(props) {
+  if (props.icon) {
+    return <i className="material-icons prefix">{props.icon}</i>;
+  }
+  return null;
+}
+
+function ErrorMessage(props) {
+  if (props.error) {
+    return <span className="helper-text" data-error={props.errorText}></span>;
+  }
+  return null;
+}
 
 module.exports = Input;
