@@ -17,7 +17,11 @@ app.use(webpackDevMiddleware(compiler, {
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
 app.get("/", function response(req, res) {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "login.html"));
+});
+
+app.get("/feed", function response(req, res) {
+  res.sendFile(path.join(__dirname, "feed.html"));
 });
 
 app.listen(3000, function () {

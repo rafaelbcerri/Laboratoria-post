@@ -2,10 +2,13 @@ const path = require('path');
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: ["babel-polyfill", "./src/containers/login.jsx"],
+  entry: {
+    'loginBudle': './src/containers/login.jsx',
+    'feedBundle': './src/containers/feed.jsx',
+  },
   output: {
     path: path.join(__dirname, 'public'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: '/public/'
   },
   module: {
