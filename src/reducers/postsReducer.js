@@ -14,7 +14,7 @@ export default function reducer(state=defaultState, action) {
       let newPostList = {...state.posts};
       let postId = action.payload.postId;
       newPostList[postId] = action.payload.post;
-      return {...state, newPost: defaultState.newPost, posts: newPostList}
+      return {...state, newPost: defaultState.newPost, posts: newPostList, error: null}
     }
     case "EDIT_POST": {
       return {...state, posts: action.payload}
@@ -27,6 +27,12 @@ export default function reducer(state=defaultState, action) {
     }
     case "EDIT_NEW_POST_TYPE": {
       return {...state, newPost: {...state.newPost, type: action.payload}}
+    }
+    case "ERROR": {
+      return {
+        ...state,
+        error: action.payload.error,
+        newPost: defaultState.newPost}
     }
   }
   return state;

@@ -31,7 +31,7 @@ class EditCard extends React.Component {
     return (
       <CardWrapper>
         <div>
-          <Textarea id={this.props.editCardTextId} label="No que está pensando?" onChange={this.handleTextChange} value={this.props.textValue} labelClasses={this.props.labelClasses}/>
+          <Textarea id={this.props.editCardTextId} label="No que está pensando?" onChange={this.handleTextChange} value={this.props.textValue} labelClasses={this.props.labelClasses} error={this.props.error}/>
         </div>
         <div className="row mb-0">
           <Dropdown classes="w-100 d-ib m-0" dropdownId={this.props.editCardId} options={[{value: "public", text: "Público"}, {value: "friends", text: "Amigos"}]} onChange={this.handleDropdownChange} value={this.props.typeValue}/>

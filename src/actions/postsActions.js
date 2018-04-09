@@ -95,6 +95,12 @@ export function handlePostEdition(userId, postId, posts) {
   }
 }
 
+export function handleTextError() {
+  return (dispatch) => {
+    dispatch({type: "ERROR", payload: {error: "text"}})
+  }
+}
+
 function changePostToEdit(postId,posts) {
   for (var key in posts) {
     if (posts.hasOwnProperty(key)) {
