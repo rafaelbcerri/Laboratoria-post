@@ -46,7 +46,11 @@ EditCard.propTypes = {
   editCardId: PropTypes.string.isRequired,
   textValue: PropTypes.string.isRequired,
   onChangeText: PropTypes.func.isRequired,
-  onChangeDropdown: PropTypes.func.isRequired
+  onChangeDropdown: PropTypes.func.isRequired,
+  error: PropTypes.bool,
+  labelClasses: PropTypes.string,
+  buttonText: PropTypes.string.isRequired,
+  typeValue: PropTypes.string,
 };
 
 module.exports = EditCard;

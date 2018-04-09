@@ -4,12 +4,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from 'prop-types';
 
-class FlatButton extends React.Component {
-  render() {
-    return (
-      <a className={"btn-flat " + this.props.classes} onClick={this.props.onClick}>{this.props.text}</a>
-    );
-  }
+function FlatButton(props) {
+  return (
+    <a className={"btn-flat " + props.classes} onClick={props.onClick}>{props.text}</a>
+  );
 }
 
 FlatButton.propTypes = {

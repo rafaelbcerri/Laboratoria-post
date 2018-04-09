@@ -39,7 +39,9 @@ Dropdown.propTypes = {
   dropdownId: PropTypes.string.isRequired,
   classes: PropTypes.string,
   options: PropTypes.array.isRequired,
-  value: PropTypes.string
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  label: PropTypes.string
 };
 
 module.exports = Dropdown;

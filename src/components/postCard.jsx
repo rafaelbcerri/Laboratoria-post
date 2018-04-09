@@ -38,7 +38,10 @@ class PostCard extends React.Component {
 }
 
 PostCard.propTypes = {
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  onPostDelete: PropTypes.func.isRequired,
+  onPostEdit: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 module.exports = PostCard;

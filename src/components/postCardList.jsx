@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from 'prop-types';
 import * as PostsActions from "../actions/postsActions.js"
 import PostCard from "../components/postCard.jsx";
 import EditCard from "../components/editCard.jsx";
@@ -69,6 +70,8 @@ function PostCardListItem(props) {
 }
 
 PostCardList.propTypes = {
+  posts: PropTypes.any,
+  userId: PropTypes.string
 };
 
 module.exports = PostCardList;

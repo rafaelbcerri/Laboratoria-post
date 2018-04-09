@@ -4,24 +4,22 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from 'prop-types';
 
-class Input extends React.Component {
-  render() {
-    let classes = "validate";
-    if (this.props.value.length == 0) {
-      classes = "validate ";
-      if (this.props.error) {
-        classes += "invalid";
-      }
-    } 
-    return (
-      <div className="input-field">
-        <InputIcon {...this.props}/>
-        <input id={this.props.id} type={this.props.type} className={classes} value={this.props.value} onChange={this.props.onChange}/>
-        <label htmlFor={this.props.id}>{this.props.label}</label>
-        <ErrorMessage {...this.props}/>
-      </div>
-    );
+function Input(props) {
+  let classes = "validate";
+  if (props.value.length == 0) {
+    classes = "validate ";
+    if (props.error) {
+      classes += "invalid";
+    }
   }
+  return (
+    <div className="input-field">
+      <InputIcon {...props}/>
+      <input id={props.id} type={props.type} className={classes} value={props.value} onChange={props.onChange}/>
+      <label htmlFor={props.id}>{props.label}</label>
+      <ErrorMessage {...props}/>
+    </div>
+  );
 }
 
 Input.propTypes = {
@@ -32,7 +30,7 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   error: PropTypes.bool,
   errorText: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func.isRequired
 };
 
 function InputIcon(props) {

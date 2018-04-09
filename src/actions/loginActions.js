@@ -37,7 +37,6 @@ export function userLogin(email, password) {
       }
     })
     .catch((error) => {
-      console.log(error);
       dispatch({type: "ERROR", payload: error});
     });
   }

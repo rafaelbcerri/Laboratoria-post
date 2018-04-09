@@ -4,30 +4,30 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from 'prop-types';
 
-class Textarea extends React.Component {
-  render() {
-    let classes = "materialize-textarea";
-    if (this.props.value.length == 0) {
-      classes = "materialize-textarea ";
-      if (this.props.error) {
-        classes += "invalid";
-      }
+function Textarea(props) {
+  let classes = "materialize-textarea";
+  if (props.value.length == 0) {
+    classes = "materialize-textarea ";
+    if (props.error) {
+      classes += "invalid";
     }
-    return (
-      <div className="input-field">
-        <textarea id={this.props.id} className={classes} value={this.props.value} onChange={this.props.onChange}></textarea>
-        <label htmlFor={this.props.id} className={this.props.labelClasses}>{this.props.label}</label>
-        <ErrorMessage {...this.props}/>
-      </div>
-    );
   }
+  return (
+    <div className="input-field">
+      <textarea id={props.id} className={classes} value={props.value} onChange={props.onChange}></textarea>
+      <label htmlFor={props.id} className={props.labelClasses}>{props.label}</label>
+      <ErrorMessage {...props}/>
+    </div>
+  );
 }
 
 Textarea.propTypes = {
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
   label: PropTypes.string,
-  labelClasses: PropTypes.string
+  labelClasses: PropTypes.string,
+  error: PropTypes.bool,
+  onChange: PropTypes.func.isRequired
 };
 
 function ErrorMessage(props) {
