@@ -26,12 +26,12 @@ export function handlePasswordError() {
 
 export function userLogin(email, password) {
   return (dispatch) => {
-    return firebase.ref('/').once('value', snap => {
-      const users = snap.val().users;
+    return firebase.ref('/users').once('value', snap => {
+      const users = snap.val();
       const foundUser = searchUser(users, email, password);
       if (foundUser) {
         dispatch({type: "USER_FOUND", payload: foundUser})
-        window.location.replace("/feed");
+        window.location.replace("/feed?userId=" + foundUser);
       } else {
         dispatch({type: "ERROR", payload: {error: "not_found"}})
       }

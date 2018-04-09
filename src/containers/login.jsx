@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import Input from "../components/input.jsx";
 import CardWrapper from "../components/cardWrapper.jsx";
 import FlatButton from "../components/flatButton.jsx";
-import * as LoginActions from "../actions/loginAction.js"
+import * as LoginActions from "../actions/loginActions.js"
 import store from '../store.js';
 
 @connect((store) =>{

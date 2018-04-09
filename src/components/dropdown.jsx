@@ -12,7 +12,7 @@ class Dropdown extends React.Component {
   render() {
     return (
       <div className={"input-field " + this.props.classes}>
-        <select id={this.props.dropdownId}>
+        <select id={this.props.dropdownId} onChange={this.props.onChange} value={this.props.value}>
           <OptionsList options={this.props.options} />
         </select>
         {
@@ -38,7 +38,8 @@ function OptionItem(props) {
 Dropdown.propTypes = {
   dropdownId: PropTypes.string.isRequired,
   classes: PropTypes.string,
-  options: PropTypes.array.isRequired
+  options: PropTypes.array.isRequired,
+  value: PropTypes.string
 };
 
 module.exports = Dropdown;
