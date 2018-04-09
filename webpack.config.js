@@ -7,7 +7,7 @@ module.exports = {
     'feedBundle': './src/containers/feed.jsx',
   },
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, '/public'),
     filename: '[name].js',
     publicPath: '/public/'
   },
