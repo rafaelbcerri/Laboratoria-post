@@ -50,8 +50,6 @@ function searchUser(users, email, password) {
       let correctPassword = users[key].password == password;
       if (correctEmail && correctPassword) {
         return key;
-      } else {
-        return null;
       }
     }
   }
